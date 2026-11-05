@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turath College of Education, Kano</title>
+    <!-- Google Fonts for modern typography and Arabic support -->
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS VARIABLES - Based on the Logo Colors */
+        :root {
+            --primary-green: #007A33; /* The green from the logo */
+            --dark-green: #004d20;
+            --accent-gold: #F4C430; /* The sun rays */
+            --light-bg: #F8F9FA;
+            --text-dark: #333333;
+            --text-light: #FFFFFF;
+        }
+
+        /* RESET & BASE STYLES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--light-bg);
+            line-height: 1.6;
+        }
+
+        /* TYPOGRAPHY */
+        h1, h2, h3 {
+            color: var(--primary-green);
+            font-weight: 700;
+        }
+
+        .arabic-text {
+            font-family: 'Amiri', serif;
+            color: var(--primary-green);
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            display: block;
+            text-align: center;
+        }
+
+        /* HEADER & NAVIGATION */
+        header {
+            background-color: var(--text-light);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .top-bar {
+            background-color: var(--primary-green);
+            color: var(--text-light);
+            text-align: center;
+            padding: 5px;
+            font-size: 0.8rem;
+            font-weight: 300;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* LOGO PLACEHOLDER STYLE */
+        .logo-container img {
+            height: 70px;
+            width: auto;
+            /* Fallback if image is missing */
+            background-color: #eee;
+            border-radius: 50%;
+        }
+
+        .logo-text h1 {
+            font-size: 1.2rem;
+            line-height: 1.1;
+            margin: 0;
+        }
+
+        .logo-text span {
+            font-size: 0.8rem;
+            color: var(--text-dark);
+            font-weight: 400;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary-green);
+        }
+
+        .btn-apply {
+            background-color: var(--primary-green);
+            color: white !important;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .btn-apply:hover {
+            background-color: var(--dark-green);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(rgba(0, 122, 51, 0.9), rgba(0, 77, 32, 0.9)), url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') center/cover;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .hero h2 {
+            color: white;
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px auto;
+        }
+
+        /* MAIN CONTENT SECTIONS */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-gold);
+            border-radius: 2px;
+        }
+
+        /* ABOUT SECTION */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .about-image {
+            background-color: var(--primary-green);
+            height: 300px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.5rem;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        /* NCE PROGRAMS SECTION */
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .program-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-top: 5px solid var(--primary-green);
+            transition: transform 0.3s ease;
+        }
+
+        .program-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .program-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .program-card p {
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: var(--dark-green);
+            color: white;
+            padding: 50px 20px 20px 20px;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-col h3 {
+            color: var(--accent-gold);
+            margin-bottom: 15px;
+        }
+
+        .footer-col p, .footer-col ul {
+            font-size: 0.9rem;
+            color: #ddd;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.8rem;
+            color: #aaa;
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .hero h2 {
+                font-size: 2rem;
+            }
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER & NAVIGATION -->
+    <header>
+        <div class="top-bar">
+            Welcome to Turath College of Education, Kano | NCE Accredited Institution
+        </div>
+        <div class="nav-container">
+            <div class="logo-container">
+                <!-- IMPORTANT: Replace 'logo.png' with your actual logo file name -->
+                <img src="logo.png" alt="Turath College Logo" onerror="this.src='https://via.placeholder.com/70x70?text=Logo'">
+                <div class="logo-text">
+                    <h1>Turath College</h1>
+                    <span>of Education, Kano</span>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#programs">NCE Programs</a></li>
+                    <li><a href="#admissions">Admissions</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#apply" class="btn-apply">Apply Now</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <span class="arabic-text" style="color: white; font-size: 2rem;">كليـة تراث الإسلام</span>
+        <h2>Nurturing Educators, Preserving Heritage</h2>
+        <p>Welcome to Turath College of Education, Kano. We are dedicated to providing high-quality Nigeria Certificate in Education (NCE) programs that combine academic excellence with strong moral and Islamic values.</p>
+        <a href="#apply" class="btn-apply" style="font-size: 1.1rem; padding: 15px 30px;">Start Your Application</a>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="container" id="about">
+        <div class="section-title">
+            <h2>About Our College</h2>
+        </div>
+        <div class="about-content">
+            <div class="about-text">
+                <p><strong>Turath College of Education, Kano</strong> is a premier institution dedicated to the training of future teachers. Our name, "Turath" (Heritage), reflects our commitment to preserving and integrating Islamic knowledge and values into modern educational practices.</p>
+                <p>We offer fully accredited <strong>NCE (Nigeria Certificate in Education)</strong> programs designed to equip students with the pedagogical skills, subject knowledge, and ethical foundation required to excel in today's classrooms.</p>
+                <p>Our serene campus provides the perfect environment for learning, research, and character development.</p>
+            </div>
+            <div class="about-image">
+                <!-- You can replace this div with an actual image of the college -->
+                <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="College Campus" style="width:100%; height:100%; object-fit:cover; border-radius:10px;">
+            </div>
+        </div>
+    </section>
+
+    <!-- NCE PROGRAMS SECTION -->
+    <section class="container" id="programs" style="background-color: white; max-width: 100%;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div class="section-title">
+                <h2>Our NCE Programs</h2>
+            </div>
+            <div class="programs-grid">
+                <!-- Program 1 -->
+                <div class="program-card">
+                    <h3>NCE in Arabic & Islamic Studies</h3>
+                    <p>Designed for students passionate about teaching Islamic education and the Arabic language in primary and junior secondary schools.</p>
+                </div>
+                <!-- Program 2 -->
+                <div class="program-card">
+                    <h3>NCE in Primary Education Studies</h3>
+                    <p>A comprehensive program that prepares teachers to handle all subjects in primary schools with modern pedagogical techniques.</p>
+                </div>
+                <!-- Program 3 -->
+                <div class="program-card">
+                    <h3>NCE in English Education</h3>
+                    <p>Equipping future educators with the skills to teach English language and literature effectively.</p>
+                </div>
+                <!-- Program 4 -->
+                <div class="program-card">
+                    <h3>NCE in Mathematics Education</h3>
+                    <p>Develop the analytical skills needed to teach mathematics and make it accessible and engaging for students.</p>
+                </div>
+                <!-- Program 5 -->
+                <div class="program-card">
+                    <h3>NCE in Computer Science</h3>
+                    <p>Preparing teachers for the digital age, focusing on IT literacy and computer science education.</p>
+                </div>
+                <!-- Program 6 -->
+                <div class="program-card">
+                    <h3>NCE in Integrated Science</h3>
+                    <p>Training educators to teach foundational science subjects (Biology, Chemistry, Physics) at the basic education level.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ADMISSIONS SECTION -->
+    <section class="container" id="admissions">
+        <div class="section-title">
+            <h2>Admissions & Requirements</h2>
+        </div>
+        <div style="background: white; padding: 40px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+            <h3 style="margin-bottom: 15px;">Entry Requirements for NCE</h3>
+            <ul style="list-style-position: inside; margin-bottom: 20px; color: #555;">
+                <li>Five (5) O'Level credit passes (WAEC, NECO, or NABTEB) including English Language and Mathematics.</li>
+                <li>Passes must be in relevant subjects for your chosen program.</li>
+                <li>Candidates must participate in the JAMB UTME examination (for JAMB candidates) or apply directly for Direct Entry.</li>
+                <li>Must possess good character and be of sound mind.</li>
+            </ul>
+            <h3 style="margin-bottom: 15px;">How to Apply</h3>
+            <p style="color: #555; margin-bottom: 20px;">You can obtain the application form directly from the college registry or apply online through our portal.</p>
+            <a href="#apply" class="btn-apply">Begin Online Application</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>Turath College</h3>
+                <p>Nurturing Educators, Preserving Heritage.</p>
+                <p style="margin-top: 10px;">Approved by the National Commission for Colleges of Education (NCCE).</p>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#about" style="color:#ddd; text-decoration:none;">About Us</a></li>
+                    <li><a href="#programs" style="color:#ddd; text-decoration:none;">NCE Programs</a></li>
+                    <li><a href="#admissions" style="color:#ddd; text-decoration:none;">Admissions</a></li>
+                    <li><a href="#" style="color:#ddd; text-decoration:none;">Student Portal</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Contact Us</h3>
+                <ul>
+                    <li>📍 Kano State, Nigeria</li>
+                    <li>📞 +234 (0) 800 000 0000</li>
+                    <li>✉️ info@turathcollege.edu.ng</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 Turath College of Education, Kano. All Rights Reserved.
+        </div>
+    </footer>
+
+</body>
+</html>
